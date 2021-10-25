@@ -1,27 +1,27 @@
 {% set name = "coverage-badge" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 142fd121f3bd14956aff3c45bff6f8bc37bd74c6350626a950ebb6accb24276e
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 5060b991040cc0a5d7e3e45f96dd75db9ed7bc921f1802df6eec8706fc79b2ec
 
 build:
   number: 0
   noarch: python
   entry_points:
     - coverage-badge = coverage_badge.__main__:main
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
-    - python
+    - python >=3.6
     - setuptools
     - coverage
 
@@ -32,12 +32,12 @@ test:
     - coverage-badge --help
 
 about:
-  home: "https://github.com/dbrgn/coverage-badge"
+  home: https://github.com/dbrgn/coverage-badge
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: "Generate coverage badges for Coverage.py."
-  dev_url: "https://github.com/dbrgn/coverage-badge"
+  summary: Generate coverage badges for Coverage.py.
+  dev_url: https://github.com/dbrgn/coverage-badge
 
 extra:
   recipe-maintainers:

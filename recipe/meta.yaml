@@ -1,5 +1,5 @@
 {% set name = "coverage-badge" %}
-{% set version = "1.0.2" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5060b991040cc0a5d7e3e45f96dd75db9ed7bc921f1802df6eec8706fc79b2ec
+  sha256: c824a106503e981c02821e7d32f008fb3984b2338aa8c3800ec9357e33345b78
 
 build:
   number: 0

@@ -1,5 +1,6 @@
 {% set name = "coverage-badge" %}
 {% set version = "1.1.2" %}
+{% set python_min = "3.6" %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +11,7 @@ source:
   sha256: fe7ed58a3b72dad85a553b64a99e963dea3847dcd0b8ddd2b38a00333618642c
 
 build:
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - coverage-badge = coverage_badge.__main__:main
@@ -20,6 +21,7 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
+    - setuptools
   run:
     - python >={{ python_min }}
     - setuptools

@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: fe7ed58a3b72dad85a553b64a99e963dea3847dcd0b8ddd2b38a00333618642c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - coverage-badge = coverage_badge.__main__:main
@@ -19,13 +19,15 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - setuptools
     - coverage
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - coverage_badge
   commands:
